@@ -16,13 +16,13 @@ client.on("message", async message => {
   if(message.author.bot) return;
 
   //ignore non prefix message.
-  if(message.content.indexOf(config.prefix) !== 0) return;
+  if(message.content.indexOf("+") !== 0) return;
 
   // Here we separate our "command" name, and our "arguments" for the command.
   // e.g. if we have the message "+say Is this the real life?" , we'll get the following:
   // command = say
   // args = ["Is", "this", "the", "real", "life?"]
-  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const args = message.content.slice(1).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
   if(command in photos_path) {
@@ -30,4 +30,4 @@ client.on("message", async message => {
   }
 });
 
-client.login(config.token);
+client.login(process.env.BOT_TOKEN);
