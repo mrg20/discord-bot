@@ -1,3 +1,4 @@
+//https://discordapp.com/oauth2/authorize?&client_id=423501161925181441&scope=bot&permissions=0
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
