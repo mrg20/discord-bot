@@ -52,7 +52,9 @@ client.on("message", async message => {
       resp.on('end', () => {
         // message.channel.send(JSON.parse(data)['value']['joke']);
         translate(JSON.parse(data)['value']['joke'], {from: 'en', to: 'es'}).then(res => {
-            message.channel.send(res.text);
+            message.channel.send(res.text, {
+             tts: true
+            });
         }).catch(err => {
             console.error(err);
         });
