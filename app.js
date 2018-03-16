@@ -49,7 +49,9 @@ client.on("message", async message => {
 
       // The whole response has been received. Print out the result.
       resp.on('end', () => {
-        message.channel.send(JSON.parse(data)['value']['joke']);
+        message.channel.send(JSON.parse(data)['value']['joke'], {
+         tts: true
+        });
       });
 
     }).on("error", (err) => {
