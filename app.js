@@ -3,6 +3,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const photosPath = require("./yuri_photos.json");
 const https = require('https');
+const translate = require('google-translate-api');
 
 client.on("ready", () => {
   console.log(`Bot has started, ${client.guilds.size} guilds.`);
@@ -49,7 +50,12 @@ client.on("message", async message => {
 
       // The whole response has been received. Print out the result.
       resp.on('end', () => {
-        message.channel.send(JSON.parse(data)['value']['joke']);
+        // message.channel.send(JSON.parse(data)['value']['joke']);
+        translate(JSON.parse(data)['value']['joke'], {from: 'en', to: 'es'}).then(res => {
+            message.channel.send(res.text);
+        }).catch(err => {
+            console.error(err);
+        });
       });
 
     }).on("error", (err) => {
