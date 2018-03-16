@@ -1,7 +1,7 @@
 {
-  "sir": "./sir_yuri.png",
-  "pilota": "./pilota.jpg",
-  "dormir": "./dormir.jpg",
-  "cusi": "./cusi.jpg",
-  "corren": "./corren.gif"
+  "sir": "./yuri_files/sir_yuri.png",
+  "pilota": "./yuri_files/pilota.jpg",
+  "dormir": "./yuri_files/dormir.jpg",
+  "cusi": "./yuri_files/cusi.jpg",
+  "corren": "./yuri_files/corren.gif"
 }

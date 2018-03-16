@@ -1,7 +1,7 @@
 //https://discordapp.com/oauth2/authorize?&client_id=423501161925181441&scope=bot&permissions=0
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const photos_path = require("./yuri_photos.json");
+const photosPath = require("./yuri_photos.json");
 
 client.on("ready", () => {
   console.log(`Bot has started, ${client.guilds.size} guilds.`);
@@ -25,13 +25,13 @@ client.on("message", async message => {
   const args = message.content.slice(1).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
-  if(command in photos_path) {
-    message.channel.send({file: photos_path[command]});
+  if(command in photosPath) {
+    message.channel.send({file: photosPath[command]});
   }
-  
+
   if(command === "help"){
-    message.channel.send("Yuri photos:");
-    message.channel.send(Object.keys(photos_path));
+    message.channel.send("Yuri nudes:");
+    message.channel.send(Object.keys(photosPath));
   }
 });
 
