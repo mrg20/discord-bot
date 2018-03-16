@@ -28,6 +28,10 @@ client.on("message", async message => {
   if(command in photos_path) {
     message.channel.send({file: photos_path[command]});
   }
+  
+  if(command === "help"){
+    message.channel.send(Object.keys(photos_path));
+  }
 });
 
 client.login(process.env.BOT_TOKEN);
