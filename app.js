@@ -2,6 +2,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const photosPath = require("./yuri_photos.json");
+const https = require('https');
 
 client.on("ready", () => {
   console.log(`Bot has started, ${client.guilds.size} guilds.`);
@@ -32,6 +33,28 @@ client.on("message", async message => {
   if(command === "help"){
     message.channel.send("Yuri nudes:");
     message.channel.send(Object.keys(photosPath));
+    message.channel.send("Other shit: ");
+    message.channel.send("joke");
+  }
+
+  if(command === "joke"){
+
+    https.get('https://api.icndb.com/jokes/random?firstName=Yuri&lastName=ThePUG', (resp) => {
+      let data = '';
+
+      // A chunk of data has been recieved.
+      resp.on('data', (chunk) => {
+        data += chunk;
+      });
+
+      // The whole response has been received. Print out the result.
+      resp.on('end', () => {
+        message.channel.send(JSON.parse(data)['value']['joke']);
+      });
+
+    }).on("error", (err) => {
+      console.log("Error: " + err.message);
+    });
   }
 });
 
