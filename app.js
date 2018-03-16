@@ -30,7 +30,8 @@ client.on("message", async message => {
   }
   
   if(command === "help"){
-    message.channel.send("Fitxers del yuri:" + Object.keys(photos_path));
+    message.channel.send("Yuri photos:");
+    message.channel.send(Object.keys(photos_path));
   }
 });
 
