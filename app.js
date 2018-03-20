@@ -40,7 +40,7 @@ client.on("message", async message => {
 
   if(command === "joke"){
 
-    https.get('https://api.icndb.com/jokes/random?firstName=Yuri&lastName=ThePUG', (resp) => {
+    https.get('https://api.icndb.com/jokes/random?firstName=Yuri&lastName=Depug', (resp) => {
       let data = '';
 
       // A chunk of data has been recieved.
